@@ -1,0 +1,237 @@
+/* CSS Media Queries */
+
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ! Large desktop
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+@media (min-width: 1200px) {
+.container {
+	width: 1284px;
+}
+.caroufredsel_wrapper[style] {
+	overflow: hidden;/*height: 249px !important;
+		width: 249px !important;*/
+}
+.banner--clone .banner-wrapper {
+	max-width: 1284px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+}
+
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ! Medium desktop
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+@media (min-width: 992px) and (max-width: 1199px) {
+.caroufredsel_wrapper[style] {
+	overflow: hidden;
+	height: 171px !important;
+	width: 171px !important;
+}
+.widget #searchform {
+	margin: 0;
+}
+.widget #searchform > .form-group {
+	display: inline;
+}
+.widget #searchform #s {
+	border: none;
+	width: 80%;
+	display: inline;
+}
+.banner .navbar-header {
+	display: none;
+}
+.banner--clone .banner-wrapper {
+	max-width: 970px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+}
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ! Mini Desktop
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+.caroufredsel_wrapper[style] {
+	overflow: hidden;
+	height: 303px !important;
+	width: 303px !important;
+}
+.hide-strip {
+	display: block;
+}
+.secondary-nav .nav-social {
+	margin: 13px 0;
+	float: right;
+}
+.navbar-toggle {
+	display: block;
+	margin-right: 0;
+}
+.navbar-header {
+	float: left;
+}
+.navbar-toggle .icon-bar {
+	background: #000;
+}
+.logo-wrap {
+	margin-bottom: 30px;
+	border-bottom: 1px solid #000;
+	padding: 50px 0 35px;
+}
+.yamm .dropdown-menu, .dropdown-menu {
+opacity: 1;
+visibility: visible;
+}
+#pageslide li a {
+	color: #fff;
+}
+#pageslide li a:hover {
+	text-decoration: none;
+}
+#pageslide li .nav-sub-wrap a,
+#pageslide .dropdown-menu a {
+	font-weight: normal;
+	padding: 15px 15px 15px 40px !important;
+	color: #ccc;
+}
+}
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ! Landscape phone to portrait tablet
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+@media (max-width: 767px) {
+.container {
+	width: 480px;
+}
+.hide-strip {
+	display: block;
+}
+.icon-x2 {
+	font-size: 16px;
+}
+.post-meta.visible-xs li {
+	border-right: 1px solid #000;
+	margin-right: -3px;
+	padding: 0 10px;
+	line-height: 14px;
+}
+.post-meta-date, .post-meta-tag {
+	margin-bottom: 10px;
+}
+.copyright, .credits {
+	text-align: center;
+	margin: 0 0 10px;
+}
+.caroufredsel_wrapper[style] {
+	overflow: hidden;
+	height: 408px !important;
+	width: 408px !important;
+}
+.secondary-nav .nav-social {
+	margin: 13px 0;
+	float: right;
+}
+.navbar-toggle {
+	display: block;
+	margin-right: 0;
+}
+.navbar-header {
+	float: left;
+}
+.navbar-toggle .icon-bar {
+	background: #000;
+}
+.logo-wrap {
+	margin-bottom: 30px;
+	border-bottom: 1px solid #000;
+	padding: 50px 0 35px;
+}
+.widget #searchform {
+	margin: 0;
+}
+.widget #searchform > .form-group {
+	display: inline;
+}
+.widget #searchform #s {
+	border: none;
+	width: 80%;
+	display: inline;
+}
+.yamm .dropdown-menu, .dropdown-menu {
+opacity: 1;
+visibility: visible;
+}
+.owl-banner-arrows {
+display: none;
+}
+#pageslide li a {
+	color: #fff;
+}
+#pageslide li a:hover {
+	text-decoration: none;
+}
+#pageslide li .nav-sub-wrap a,
+#pageslide .dropdown-menu a {
+	font-weight: normal;
+	padding: 15px 15px 15px 40px !important;
+	color: #ccc;
+}
+}
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ! Landscape phones and down
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+/* ======================================================================== */
+@media (max-width: 480px) {
+.container {
+	width: 320px;
+}
+.caroufredsel_wrapper[style] {
+	overflow: hidden;
+	height: 248px !important;
+	width: 248px !important;
+}
+.nav-social.list-inline>li {
+	padding-left: 1px;
+	padding-right: 1px;
+}
+#pageslide li a {
+	color: #fff;
+}
+#pageslide li a:hover {
+	text-decoration: none;
+}
+#pageslide li .nav-sub-wrap a,
+#pageslide .dropdown-menu a {
+	font-weight: normal;
+	padding: 15px 15px 15px 40px !important;
+	color: #ccc;
+}
+}
