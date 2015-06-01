@@ -439,7 +439,7 @@ function get_detail_article($id){
 
     $conn = DB_connectie();
 
-    //PROJECT
+    //ARTIKEL
     $sql = "SELECT tblArtikels.*, tblGebruikers.Gebruikersnaam as User, tblCategorieen.Naam as Categorie FROM tblArtikels 
             inner join tblgebruikers
             ON tblArtikels.AdminId=tblGebruikers.Id
@@ -502,6 +502,55 @@ function get_ads($amount){
     $conn->close();
     $result->close();
     return $eventsArray;
+}
+
+function get_detail_ad($id){
+    $adDetailArray = array();
+    $adPhotosArray = array();
+    $adProjectDetailArray = array();
+    $adReactionsArray = array();
+
+    $conn = DB_connectie();
+
+    //ZOEKERTJE
+    $sql = "SELECT tblZoekertjes.*, tblGebruikers.Gebruikersnaam as User, tblCategorieen.Naam as Categorie FROM tblZoekertjes 
+            inner join tblgebruikers
+            ON tblZoekertjes.AdminId=tblGebruikers.Id
+            inner join tblCategorieen 
+            ON tblZoekertjes.CategorieId = tblCategorieen.Id
+            WHERE tblZoekertjes.Id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if(!$result){
+        die('Probleem met de query: ' . $conn->error);
+    }
+    while($row = $result->fetch_array(MYSQL_ASSOC)){
+        $adDetailArray = articles_item_full($row["Id"], $row["Titel"], $row["Omschrijving"],  $row["Aanmaakdatum"], $row["User"], $row["Categorie"]);
+    }
+
+    //REACTIES
+    $sql = "SELECT tblReacties.*
+            FROM tblZoekertjeReacties
+            RIGHT JOIN tblReacties ON tblZoekertjeReacties.ReactieId = tblReacties.Id
+
+            WHERE tblZoekertjeReacties.ZoekertjeId = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if(!$result){
+        die('Probleem met de query: ' . $conn->error);
+    }
+    while($row = $result->fetch_array(MYSQL_ASSOC)){
+        $articleReactionsArray[] = comments_item($row["Aanmaakdatum"],$row["Id"],GetGebruiker($row["AdminId"]),$row["Omschrijving"],false);
+    }
+
+    $conn->close();
+    $result->close();
+
+    return array($adDetailArray, $adPhotosArray, $adProjectDetailArray, $adReactionsArray);
 }
 
 function DB_connectie(){

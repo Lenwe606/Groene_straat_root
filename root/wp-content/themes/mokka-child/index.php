@@ -53,7 +53,7 @@ if(isset($_GET["page"]))
     else if($_GET["page"] == "projectdetail") get_template_part("projectdetail");
     else if($_GET["page"] == "eventdetail") get_template_part("eventdetail");
     else if($_GET["page"] == "memberdetail") get_template_part("memberdetail");
-    else if($_GET["page"] == "addetail") get_template_part("adddetail");
+    else if($_GET["page"] == "addetail") get_template_part("addetail");
     else if($_GET["page"] == "newproject") get_template_part("newproject");
     else if($_GET["page"] == "newevent") get_template_part("newevent");
     else if($_GET["page"] == "editproject") get_template_part("newproject");
