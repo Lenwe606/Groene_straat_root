@@ -32,8 +32,8 @@
 
     $event_title = "Titel van het event:";
     $event_start_date = "Startdatum:";
-    $event_end_date = "Startdatum:";
-    $event_start_time = "Startdatum:";
+    $event_end_date = "Einddatum:";
+    $event_start_time = "Starttijd:";
     $event_category = "Categorie:";
     $event_website = "Website:";
     $event_linked_project = "Gekoppeld aan project:";

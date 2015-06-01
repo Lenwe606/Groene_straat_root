@@ -12,7 +12,7 @@
 <div id="wrapper">
     <div id="content">
         <h1 class="overview_title"><?php echo $projects ?></h1>
-        <div id="top" style="background:none">
+        <div id="top">
             <section>
                 <a href="./index.php?page=newproject"><button class="new_item" id="new_project" name="new_project"><?php echo $new_project ?></button></a>
                 <input value="<?php echo $search_filter ?>" class="search_input"/>

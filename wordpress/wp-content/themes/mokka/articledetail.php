@@ -48,15 +48,7 @@
         <section class="images">
             <h2 class="section_name"><?php echo $detail_images; ?></h2>
 
-            <p><img src="./img/temp.jpg"></p>
-
-            <p><img src="./img/temp.jpg"></p>
-
-            <p><img src="./img/temp.jpg"></p>
-
-            <p><img src="./img/temp.jpg"></p>
-
-            <p><img src="./img/temp.jpg"></p>
+            <?php echo fotos($detail[1]); ?>
         </section>
 
         <section class="comments">

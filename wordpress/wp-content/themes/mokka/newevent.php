@@ -28,17 +28,17 @@
                 <p><label for="img5"><?php echo $img; ?></label></p>
             </section>
             <section id="field">
-                <p><input type="text" placeholder="<?php echo $event_title; ?>" id="title" name="title"/></p>
-                <p><input type="text" placeholder="<?php echo $event_start_date; ?>" id="start_date" name="start_date"/></p>
-                <p><input type="text" placeholder="<?php echo $event_end_date; ?>" id="end_date" name="end_date"/></p>
-                <p><input type="text" placeholder="<?php echo $event_start_time; ?>" id="start_time" name="start_time"/></p>
+                <p><input type="text" placeholder="<?php echo $event_title; ?>" id="title" name="title" required/></p>
+                <p><input type="text" placeholder="<?php echo $event_start_date; ?>" id="start_date" name="start_date" required/></p>
+                <p><input type="text" placeholder="<?php echo $event_end_date; ?>" id="end_date" name="end_date" required/></p>
+                <p><input type="text" placeholder="<?php echo $event_start_time; ?>" id="start_time" name="start_time" required/></p>
                 <select id="cboCategory" name="category" class="cbo">
                     <?php echo event_category_options(get_event_category()); ?>
                 </select>
 
                 <p><input type="text" placeholder="<?php echo $event_website; ?>" id="website" name="website"/></p>
 
-                <textarea placeholder="<?php echo $event_description; ?>" id="description" name="description"></textarea>
+                <textarea placeholder="<?php echo $event_description; ?>" id="description" name="description" required></textarea>
 
                 <select id="cboProjects" name="linked_project" class="cbo">
                     <?php echo event_options($eventsArray); ?>

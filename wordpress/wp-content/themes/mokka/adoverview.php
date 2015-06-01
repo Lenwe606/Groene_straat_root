@@ -14,7 +14,7 @@
         <h1 class="overview_title"><?php echo $ads ?></h1>
         <div id="top">
             <section>
-                <button class="new_item" id="new_ad" name="new_ad"><?php echo $new_ad ?></button>
+                <a href="./index.php?page=newad"><button class="new_item" id="new_ad" name="new_ad"><?php echo $new_ad ?></button></a>
                 <input value="<?php echo $search_filter ?>" class="search_input"/>
             </section>
         </div>
@@ -28,7 +28,7 @@
                 <ul><?php echo project_category(get_project_category()); ?></ul>
             </section>
             <section id="items">
-                <ul><?php echo ads_limited(get_ads($max_shown_ads_per_page), $max_shown_ads_per_page); ?></ul>
+                <ul><?php echo linked_ads_limited(get_ads($max_shown_ads_per_page), $max_shown_ads_per_page); ?></ul>
             </section>
         </div>
     </div>

@@ -86,7 +86,7 @@ function fotos($array)
 {
     for($i = 0;$i<count($array);$i++)
     {?>
-        <p><img src="/wp-content/themes/mokka-child/img/<?php echo $array[$i][1] ?>"></p>
+        <p><img src="wp-content/themes/mokka/img/<?php echo $array[$i][1] ?>"></p>
     <?php
     }
 }
@@ -176,7 +176,7 @@ function linked_events_limited($array, $amount)
     }
 }
 
-function ads_limited($array, $amount)
+function linked_ads_limited($array, $amount)
 {
     $max = 0;
     if ($amount > count($array)) $max = count($array);
@@ -197,7 +197,7 @@ function ads_limited($array, $amount)
     }
 }
 
-function articles_limited($array, $amount)
+function linked_articles_limited($array, $amount)
 {
     $max = 0;
     if ($amount > count($array)) $max = count($array);
@@ -205,13 +205,13 @@ function articles_limited($array, $amount)
     for ($i = 0; $i < $max; $i++) {
         ?>
         <li><a href="./index.php?page=articledetail&id=<?php echo $array[$i][0]; ?>">
-            <p class="article_name"><?php echo $array[$i][1]; ?></p>
+            <p class="article_name"><?php echo $array[$i][1]."name"; ?></p>
 
             <p class="article_date"><?php echo $array[$i][2]; ?></p>
 
-            <p class="article_category"><?php echo $array[$i][3]; ?></p>
+            <p class="article_category"><?php echo $array[$i][3]."cat"; ?></p>
 
-            <p class="article_linked_value"><?php echo $array[$i][4]; ?></p>
+            <p class="article_linked_value"><?php echo $array[$i][4]."val"; ?></p>
             </a>
         </li>
     <?php
@@ -229,12 +229,12 @@ function comments_limited($array, $amount)
             <div class="comment_info">
                 <p class="comment_date"><?php echo $array[$i][0]; ?></p>
 
-                <p class="comment_img"><img src="<?php echo $array[$i][1]; ?>"></p>
+                <p class="comment_img"><img src="wp-content/themes/mokka/img/<?php echo $array[$i][1]; ?>"></p>
 
                 <p class="comment_name"><?php echo $array[$i][2]; ?></p>
             </div>
             <p class="comment_reaction"><?php echo $array[$i][3]; ?></p>
-            <button><?php echo $array[$i][4]; ?></button>
+            <button>Verwijder</button>
         </li>
     <?php
     }

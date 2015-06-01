@@ -14,27 +14,17 @@
 			$detail = get_detail_ad(($_GET["id"]));
 		}
 		?>
-		<h1 class="overview_title"><?php echo $detail[0][0][1]; ?></h1>
+		<h1 class="overview_title"><?php echo $detail[0][1]; ?></h1>
 		<section class="info">
 			<h2 class="section_name"><?php echo $detail_general; ?></h2>
 			<p class="item_name"><?php echo $detail_owner; ?></p>
-			<p class="item_value"><?php echo $detail[0][0][2]; ?></p>
-			<p class="item_name"><?php echo $detail_start_date; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][3]; ?></p>
-			<p class="item_name"><?php echo $detail_end_date; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][4]; ?></p>
-			<p class="item_name"><?php echo $detail_start_time; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][5]; ?></p>
-			<p class="item_name"><?php echo $detail_location; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][6]; ?></p>
+			<p class="item_value"><?php echo $detail[0][4]; ?></p>
+			<p class="item_name"><?php echo $detail_creation_date; ?></p>
+			<p class="item_value"><?php echo $detail[0][3]; ?></p>
 			<p class="item_name"><?php echo $detail_linked; ?></p>
-			<p class="item_name"></p>
-			<p class="item_name"><?php echo $detail_category; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][7]; ?></p>
-			<p class="item_name"><?php echo $detail_website; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][8]; ?></p>
+			<p class="item_value"></p>
 			<p class="item_name"><?php echo $detail_description; ?></p>
-			<p class="item_name"><?php echo $detail[0][0][9]; ?></p>
+			<p class="item_value"><?php echo $detail[0][2]; ?></p>
 		</section>
 
 		<section class="buttons">
@@ -50,11 +40,6 @@
 			<h2 class="section_name"><?php echo $detail_images; ?></h2>
 			<?php echo fotos($detail[1]); ?>
 
-		</section>
-
-		<section class="members">
-			<h2 class="section_name"><?php echo $detail_members; ?></h2>
-			<ul><?php print_r($detail[2]);echo members($detail[2]); ?></ul>
 		</section>
 		
 		<section class="comments">
@@ -72,7 +57,7 @@
 		<section class="comment">
 			<form method="post">
 				<p><?php echo $detail_place_comment; ?></p>
-				<<textarea></textarea>
+				<textarea></textarea>
 				<input type="submit" value="<?php echo $detail_place_comment_button; ?>"/>
 			</form>
 		</section>

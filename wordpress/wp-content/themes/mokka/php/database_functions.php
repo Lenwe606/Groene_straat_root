@@ -60,7 +60,7 @@ function get_event_category(){
 function get_citys(){
     $citysArray = array();
     $conn = DB_connectie();
-    $sql = "SELECT Id, Gemeente FROM tblsteden";
+    $sql = "SELECT Id, Gemeente FROM tblsteden GROUP BY Gemeente ASC";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
@@ -107,10 +107,10 @@ function get_new_events($amount){
 
 function get_news(){
     $newsArray = array();
-    $newsArray[] = news_item("Datum", "http://localhost:8080/wp-content/uploads/2015/05/temp.jpg", "Admin", "De reactie tekst");
-    $newsArray[] = news_item("Datum", "http://localhost:8080/wp-content/uploads/2015/05/temp.jpg", "Admin", "De reactie tekst");
-    $newsArray[] = news_item("Datum", "http://localhost:8080/wp-content/uploads/2015/05/temp.jpg", "Admin", "De reactie tekst");
-    $newsArray[] = news_item("Datum", "http://localhost:8080/wp-content/uploads/2015/05/temp.jpg", "Admin", "De reactie tekst");
+    $newsArray[] = news_item("Datum", "wp-content/themes/mokka/img/temp.jpg", "Admin", "De reactie tekst");
+    $newsArray[] = news_item("Datum", "wp-content/themes/mokka/img/temp.jpg", "Admin", "De reactie tekst");
+    $newsArray[] = news_item("Datum", "wp-content/themes/mokka/img/temp.jpg", "Admin", "De reactie tekst");
+    $newsArray[] = news_item("Datum", "wp-content/themes/mokka/img/temp.jpg", "Admin", "De reactie tekst");
     return $newsArray;
 }
 
@@ -192,6 +192,7 @@ function get_detail_project($id){
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
         $projectGebruikersArray[] = gebruiker_item($row["Id"],$row["Gebruikersnaam"]);
     }
+
 
     //EVENTS
     $sql = "SELECT tblevents.*
@@ -309,7 +310,7 @@ function get_detail_event($id)
     {
         $eventGebruikerArray[] = gebruiker_item($row["Id"],$row["Gebruikersnaam"]);
     }
-    print_r($eventGebruikerArray);
+    
 
     //REACTIES
     $sql = "SELECT tblReacties.*
@@ -474,6 +475,25 @@ function get_detail_article($id){
         $articleReactionsArray[] = comments_item($row["Aanmaakdatum"],$row["Id"],GetGebruiker($row["AdminId"]),$row["Omschrijving"],false);
     }
 
+    //FOTOS
+    $sql = "SELECT tblfotos.*
+            FROM tblArtikelFotos
+            RIGHT JOIN tblFotos ON tblArtikelFotos.FotoId = tblfotos.Id
+            WHERE tblArtikelfotos.ArtikelId = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i",$id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if(!$result)
+    {
+        die('Probleem met de query: '.$conn->error);
+    }
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {
+        $articlePhotosArray[] = foto_item($row["Id"],$row["Url"],false);
+    }
+
+
     $conn->close();
     $result->close();
 
@@ -530,11 +550,26 @@ function get_detail_ad($id){
         $adDetailArray = articles_item_full($row["Id"], $row["Titel"], $row["Omschrijving"],  $row["Aanmaakdatum"], $row["User"], $row["Categorie"]);
     }
 
+    //FOTOS
+    $sql = "SELECT tblfotos.*
+            FROM tblzoekertjefotos
+            RIGHT JOIN tblfotos ON tblzoekertjefotos.FotoId = tblfotos.Id
+            WHERE tblzoekertjefotos.ZoekertjeId = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if(!$result){
+        die('Probleem met de query: ' . $conn->error);
+    }
+    while($row = $result->fetch_array(MYSQL_ASSOC)){
+        $adPhotosArray[] = foto_item($row["Id"],$row["Url"],false);
+    }
+
     //REACTIES
     $sql = "SELECT tblReacties.*
             FROM tblZoekertjeReacties
             RIGHT JOIN tblReacties ON tblZoekertjeReacties.ReactieId = tblReacties.Id
-
             WHERE tblZoekertjeReacties.ZoekertjeId = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
@@ -544,7 +579,7 @@ function get_detail_ad($id){
         die('Probleem met de query: ' . $conn->error);
     }
     while($row = $result->fetch_array(MYSQL_ASSOC)){
-        $articleReactionsArray[] = comments_item($row["Aanmaakdatum"],$row["Id"],GetGebruiker($row["AdminId"]),$row["Omschrijving"],false);
+        $adReactionsArray[] = comments_item($row["Aanmaakdatum"],$row["Id"],GetGebruiker($row["AdminId"]),$row["Omschrijving"],false);
     }
 
     $conn->close();

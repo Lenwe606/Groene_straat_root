@@ -24,12 +24,12 @@
                 <p><label for="img5"><?php echo $img; ?></label></p>
             </section>
             <section id="field">
-                <p><input type="text" placeholder="<?php echo $project_title; ?>" id="title" name="title"/></p>
-                <p><input type="text" placeholder="<?php echo $project_location; ?>" id="location" name="location"/></p>
+                <p><input type="text" placeholder="<?php echo $project_title; ?>" id="title" name="title" required/></p>
+                <p><input type="text" placeholder="<?php echo $project_location; ?>" id="location" name="location" required/></p>
                 <select id="cboCategory" name="category" class="cbo">
                     <?php echo project_category_options(get_project_category()); ?>
                 </select>
-                <textarea placeholder="<?php echo $project_description; ?>" id="description" name="description"></textarea>
+                <textarea placeholder="<?php echo $project_description; ?>" id="description" name="description" required></textarea>
 
                 <div class="img">
                     <p><input type="text" placeholder="<?php echo $img; ?>" id="img1" name="img1"/></p>

@@ -67,13 +67,14 @@ function comments_item($date, $img, $name, $reaction, $delete)
 
 function foto_item($id, $url, $delete)
 {
-    if($url == null) $url = "";
+    if($id == null) $id = -1;
+    if(empty($url)) $url = "temp.jpg";
     return array($id,$url,$delete);
 }
 
 function gebruiker_item($id,$gebruikersnaam)
 {
-    if($gebruikernaam == null) $gebruikersnaam = "";
+    if($gebruikersnaam == null) $gebruikersnaam = "";
     return array($id,$gebruikersnaam);
 }
 

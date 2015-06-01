@@ -157,7 +157,12 @@ a {
   width: 340px;
   height: 90px;
 }
-#top > section > .new_item {
+#top > section > a {
+  float: right;
+  width: 150px;
+  height: 40px;
+}
+#top > section > a > .new_item {
   float: right;
   width: 150px;
   height: 40px;
@@ -374,10 +379,10 @@ a {
   width: 215px;
   margin: 10px 0px 0px 0px;
 }
-.buttons > button:nth-child(2) {
+.buttons > a > button:nth-child(2) {
   margin: 0px 0px 0px 10px;
 }
-.buttons > button {
+.buttons > a > button {
   width: 100px;
   height: 40px;
 }
@@ -428,37 +433,47 @@ a {
   border-style: solid;
   margin: 10px 0px 10px 0px;
 }
-.ads > ul > li > .ads_name {
+.ads > ul > li > a {
+  float: left;
+  width: 760px;
+  height: 100px;
+}
+.ads > ul > li > a > .ads_name {
   float: left;
   width: 540px;
   height: 20px;
   margin: 10px 0px 0px 20px;
 }
-.ads > ul > li > .ads_linked_name {
+.ads > ul > li > a > .ads_linked_name {
   float: left;
   width: 100px;
   height: 20px;
   margin: 40px 0px 0px 20px;
 }
-.ads > ul > li > .ads_linked_value {
+.ads > ul > li > a > .ads_linked_value {
   float: left;
   width: 400px;
   height: 20px;
   margin: 40px 0px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-.ads > ul > li > .ads_img {
+.ads > ul > li > a > .ads_img {
   float: left;
   width: 100px;
   height: 120px;
   margin: 10px 0px 10px 20px;
 }
-.ads > ul > li > .ads_img > img {
+.ads > ul > li > a > .ads_img > img {
   width: 100px;
   height: 100px;
 }
-.ads > ul > li > .ads_date {
+.ads > ul > li > a > .ads_date {
   float: right;
-  width: 50px;
+  width: 70px;
   margin: 5px 0px 5px 0px;
 }
 .articles {
@@ -478,28 +493,38 @@ a {
   border-style: solid;
   margin: 10px 0px 10px 0px;
 }
-.articles > ul > li > .article_name,
-.articles > ul > li > .article_category {
+.articles > ul > li > a {
   float: left;
-  width: 690px;
+  width: 760px;
+  height: 100px;
+}
+.articles > ul > li > a > .article_name,
+.articles > ul > li > a > .article_category {
+  float: left;
+  width: 670px;
   height: 20px;
   margin: 10px 0px 0px 20px;
 }
-.articles > ul > li > .article_linked_name {
+.articles > ul > li > a > .article_linked_name {
   float: left;
   width: 100px;
   height: 20px;
   margin: 10px 0px 0px 20px;
 }
-.articles > ul > li > .article_linked_value {
+.articles > ul > li > a > .article_linked_value {
   float: left;
   width: 400px;
   height: 20px;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px 0px 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-.articles > ul > li > .article_date {
+.articles > ul > li > a > .article_date {
   float: right;
-  width: 50px;
+  width: 70px;
   margin: 5px 0px 5px 0px;
 }
 .comments {
@@ -542,7 +567,7 @@ a {
 .comments > ul > li > .comment_info > .comment_img,
 .comments > ul > li > .comment_info > .comment_name {
   float: left;
-  width: 50px;
+  width: 70px;
   margin: 5px 0px 0px 20px;
 }
 .comments > ul > li > .comment_info > .comment_date,
@@ -552,7 +577,7 @@ a {
 .comment {
   float: left;
   width: 700px;
-  height: 80px;
+  height: 160px;
   margin: 10px 0px 0px 50px;
 }
 .comment > form > p {

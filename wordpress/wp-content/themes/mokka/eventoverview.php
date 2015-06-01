@@ -11,7 +11,7 @@
 <div id="wrapper">
     <div id="content">
         <h1 class="overview_title"><?php echo $events ?></h1>
-        <div id="top" style="background: none">
+        <div id="top">
             <section>
                 <a href="./index.php?page=newevent"><button class="new_item" id="new_event" name="new_event"><?php echo $new_event ?></button></a>
                 <input value="<?php echo $search_filter ?>" class="search_input"/>

@@ -42,14 +42,13 @@
             <p class="item_name"><?php echo $detail_description; ?></p>
 
             <p class="item_value"><?php echo $detail[0]["description"]; ?></p>
-            ?>
         </section>
         <section class="buttons">
             <?php if ($project_owner) { ?>
                 <a href="./index.php?page=editproject&id=<?php echo $_GET["id"]; ?>"><button value="<?php echo $detail_edit; ?>"><?php echo $detail_edit; ?></button></a>
-                <button value="<?php echo $detail_delete; ?>"><?php echo $detail_delete; ?></button>
+            <a><button value="<?php echo $detail_delete; ?>"><?php echo $detail_delete; ?></button></a>
             <?php } else { ?>
-                <button value="<?php echo $detail_register; ?>"><?php echo $detail_register; ?></button>
+                <a><button value="<?php echo $detail_register; ?>"><?php echo $detail_register; ?></button></a>
             <?php } ?>
         </section>
         <section class="images">
@@ -74,7 +73,7 @@
         </section>
         <section class="ads">
             <h2 class="section_name"><?php echo $detail_linked_ads; ?></h2>
-            <ul><?php echo ads_limited($detail[4], $detail_max_shown_ads); ?></ul>
+            <ul><?php echo linked_ads_limited($detail[4], $detail_max_shown_ads); ?></ul>
             <?php
             if (count($detail[4]) > $detail_max_shown_ads) {
                 ?>
@@ -85,7 +84,7 @@
         </section>
         <section class="articles">
             <h2 class="section_name"><?php echo $detail_linked_articles; ?></h2>
-            <ul><?php echo articles_limited($detail[5], $detail_max_shown_articles); ?></ul>
+            <ul><?php echo linked_articles_limited($detail[5], $detail_max_shown_articles); ?></ul>
             <?php
             if (count($detail[5]) > $detail_max_shown_articles) {
                 ?>
@@ -113,7 +112,6 @@
                 <input type="submit" value="<?php echo $detail_place_comment_button; ?>"/>
             </form>
         </section>
-
     </div>
 </div>
 </body>
